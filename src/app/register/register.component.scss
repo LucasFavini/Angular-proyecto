@@ -10,3 +10,35 @@
     text-align: center;
     opacity: 0.9;
 }
+
+button{    
+    padding: 0px;
+}
+button:hover{color: red;}
+
+#eliminar
+{
+    display: flex;
+}
+
+#eliminar span
+{
+    flex-grow: 1;
+    margin-left: 15px;
+}
+
+@media only screen and (max-width: 500px) {
+
+    .col{
+        font-size: 10px;
+   } 
+    #eliminar{
+        text-align: center;
+        display: block;       
+        span{
+            margin-left: 0px;
+        }
+    }
+
+ }
+

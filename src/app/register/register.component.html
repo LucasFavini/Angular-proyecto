@@ -14,20 +14,22 @@
         </div>
     </div>
 
-    <div class="row mt-3">
+    <div class="row mt-3" *ngFor="let item of planList">
         <div class="col">
-            ?????
+            {{item.nombre}} {{item.apellido}}
         </div>
         <div class="col">
-            ?????
+            {{item.plan}}
         </div>
         <div class="col">
-            ?????
+            {{item.vencimiento}}
         </div>
-        <div class="col">
-            ?????
+        <div class="col" id="eliminar">
+           <span> {{item.total}}</span>            
+           <button class="btn btn-alert" (click)="delete(item.id)">X</button>
+           
         </div>
+      
     </div>
-
-    <button (click)="probar()">test</button>
+    
 </div>

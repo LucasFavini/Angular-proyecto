@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AngularFireStorage } from '@angular/fire/storage';
-import { fileURLToPath } from 'url';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ActivatedRoute } from '@angular/router';
 import { AlertsService } from '../Services/alerts.service';
@@ -59,7 +58,6 @@ export class AddClientComponent implements OnInit {
     }
   
 
-
   }
 
   add()
@@ -75,7 +73,11 @@ export class AddClientComponent implements OnInit {
     });
     this.clientForm.reset();
     this.loadingIMG=0;
-       
+    
+    
+    setTimeout(() => {        
+      window.location.href='/listado-clientes';
+    }, 1000);
   }
 
 
@@ -90,6 +92,11 @@ export class AddClientComponent implements OnInit {
       }).catch(()=>{
         this.alert.alertFail("Error", "No se puedo editar");
       });
+
+      setTimeout(() => {        
+        window.location.href='/listado-clientes';
+      }, 1000);
+  
   }
 
   addImage(event)

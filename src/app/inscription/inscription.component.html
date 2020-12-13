@@ -38,7 +38,7 @@
         <div class="col-sm-4">
             <h3>Plan</h3>
             <select [(ngModel)]="ListPlan"  name="listPlan" class="form-control">
-                <option [ngValue]="item" *ngFor="let item of planList" class="form-control">{{item.plan}}</option>
+                <option id="testing" [ngValue]="item" *ngFor="let item of planList" class="form-control">{{item.plan}}</option>
             </select>
             <div class="container mt-5" *ngIf="ListPlan!=null" id="clientData">
                           

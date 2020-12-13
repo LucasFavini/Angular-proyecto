@@ -15,7 +15,7 @@ export class InscriptionComponent implements OnInit {
 
   clientList:Clients[] = new Array <Clients>();
   planList:any[] = new Array <any>();
-  inscription:Inscription[] = new Array<Inscription>();
+  inscription7:Inscription;
   selectedList:Clients;
   ListPlan:Plan;
 
@@ -26,14 +26,12 @@ export class InscriptionComponent implements OnInit {
 
     this.db.collection<any>('clientes').get().subscribe((results)=>{
       results.docs.forEach((item)=>{
-       
+
         let client:any = item.data();
-        client.id = item.id;
-        client.ref = item.ref;
-        this.clientList.push(client);   
-             
-      })
-      console.log(this.clientList)
+        client.id = item.id;  
+        this.clientList.push(client);  
+                      
+      });
    
     })
 
@@ -48,12 +46,30 @@ export class InscriptionComponent implements OnInit {
            
       })
      
-    })
+    });
   }
 
     add()
     {
-      this.alert.alertFail("En progreso","-LucasFavini");
+      console.log(this.selectedList.nombre, this.selectedList.apellido);
+      console.log(this.ListPlan.plan, this.ListPlan.price);
+
+      this.inscription7 = {
+        nombre:this.selectedList.nombre,
+        apellido:this.selectedList.apellido,
+        vencimiento:this.ListPlan.pTime,
+        plan:this.ListPlan.plan,
+        total:this.ListPlan.price
+      }
+   
+
+      console.log(this.inscription7);
+
+      this.db.collection('inscripcion').add(this.inscription7).then(res=>{
+        console.log(res);
+      })      
+      
+      this.alert.alertSuccess('Inscripcion','Realizada');
     }
      
   
