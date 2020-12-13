@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #061922;">
+ 
+      
+        <a class="navbar-brand" href="#" id="logo">LFavin7Gym</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+      <ul class="navbar-nav mr-auto" >
+       
+        <li class="nav-item dropdown open" dropdown>
+          <a class="nav-link dropdown-toggle"  id="navbarDropdown" dropdownToggle  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Clientes
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">         
+            <a class="dropdown-item" routerLink='agregar-clientes'>Agregar Clientes</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" routerLink="listado-clientes">Ver Clientes</a>
+                   
+          </div>
+        </li>      
+
+
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="planes"> Planes <span class="sr-only">(current)</span></a>
+          </li> 
+          
+          <li class="nav-item">
+            <a class="nav-link" routerLink="inscripcion" id="inscripcion"> Inscripcion </a>
+          </li> 
+
+          <li class="nav-item">
+            <a class="nav-link" routerLink="registro"> Registro </a>
+          </li> 
+          
+          <li class="nav-item dropdown open" dropdown id="userLog">
+            <a class="nav-link dropdown-toggle" id="myUser" dropdownToggle  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{account}}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" (click)="logOut()" href="">Salir</a>
+              
+                         
+            </div>
+          </li> 
+
+          
+      </ul> 
+      
+      
+      
+    </div>
+  </nav>

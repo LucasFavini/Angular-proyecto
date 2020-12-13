@@ -1,0 +1,25 @@
+<div class="container">
+
+    <h3>Listado de Clientes</h3>
+
+    <form action="">
+        <div class="form-group">
+            <input type="text" placeholder="Buscar usuario..." class="form-control" >
+        </div>
+    </form>
+
+    <div class="row">
+        <div class="col-sm-4" *ngFor="let item of clients">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <img src={{item.imgURL}} alt="">               
+                  <h5 class="card-title text-muted mt-1">{{item.nombre}} {{item.apellido}}</h5>                                
+                  <a [routerLink]="['/agregar-clientes/', item.id]" class="card-link">Editar</a>      
+                  <a [routerLink]="" (click)="eliminar()" class="card-link" style="color: red;">Eliminar</a>               
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
+
+

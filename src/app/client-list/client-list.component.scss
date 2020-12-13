@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=Hammersmith+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap');
+
+.container
+{
+    margin-top: 2%;
+    font-family: 'DM Sans', sans-serif;
+
+}
+
+.card
+{
+    
+    background-color: #061922;
+    border: 2px solid whitesmoke;
+    text-align: center;
+    box-shadow: 0px 0px 5px;
+    border-radius: 33px;
+}
+
+.card img{margin: auto;}
+
+img
+{
+    border-radius: 33px;
+    width: 50%;
+    height: auto;
+    border: 1.5px solid whitesmoke;
+}
+
+h3,a{ font-family: 'Saira Stencil One', cursive;}

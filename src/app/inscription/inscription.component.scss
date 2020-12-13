@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap');
+
+#clientData, h3{
+    font-family: 'Saira Stencil One', cursive;
+}
+
+#btnAdd{margin-top: -5%;  font-family: 'Saira Stencil One', cursive;}
+
+img
+{
+  
+    width: 100%;
+    height: auto;
+    border-radius: 20px; 
+    border-style: solid;  
+    border-color: 1px  #061922
+}
+
+@media only screen and (max-width: 500px) {
+
+     h3{
+        margin-top: 7%;
+    } 
+  }

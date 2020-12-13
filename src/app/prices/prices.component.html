@@ -1,0 +1,46 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-sm-6">
+            <h3>Planes</h3>
+            <br>
+            <div class="card mt-1" style="text-align: left;" *ngFor="let item of planList">
+                <div class="card-header" >
+                  <a routerLink="planes" (click)="remove()">{{item.plan}} </a>
+                  <br>
+                  <button id="removeBtn" class="btn btn-link" (click)="removePlan(item.id)">X</button> 
+                </div>   
+                  
+              </div>
+            
+
+            
+        </div>
+        <div class="col-sm-4">
+            <h3>Agregar</h3>
+            <form [formGroup]="formPrice">
+
+                <div class="form-group">
+                    <label for="">Descripción</label>
+                    <input type="text" class="form-control" formControlName="plan">
+                </div>
+              
+                <div class="form-group">
+                    <label for="">Precio</label>
+                    <input type="number" class="form-control" formControlName="price"> 
+                </div>
+
+                <div class="form-group">
+                    <label for="">Plan de tiempo</label>
+                    <select name="" id="" class="form-control" formControlName="pTime">
+                        <option value="Día">Día</option>
+                        <option value="Semanal">Semana</option>
+                        <option value="Mensual">Mes</option>
+                        <option value="Anual">Año</option>
+                    </select>                    
+                </div>
+                <button class="btn btn-success" (click)="add()" [disabled]="!formPrice.valid">Agregar</button>
+                
+            </form>
+        </div>      
+    </div>
+</div>

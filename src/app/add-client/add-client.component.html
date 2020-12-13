@@ -1,0 +1,65 @@
+<div class="container mt-5">
+
+    <h3 *ngIf="!editButton">Agregar Cliente</h3>
+
+    <form [formGroup]="clientForm">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label for="">Nombre</label>
+                    <input type="text" class="form-control" formControlName="nombre">
+                 </div>
+
+            </div>
+
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label for="">Apellido</label>
+                    <input type="text" class="form-control" formControlName="apellido">
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="">Email</label>
+                    <input type="text" class="form-control" formControlName="correo" >
+                </div>
+            </div>      
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4">
+                <label for="">Fecha de Nacimiento</label>
+                <input type="date" class="form-control" formControlName="fechaNac">
+            </div>
+
+            <div class="col-sm-3">
+                <label for="">DNI</label>
+                <input type="text" class="form-control" formControlName="DNI">
+            </div>
+
+            <div class="col-sm-3">
+                <label for="">Telefono</label>
+                <input type="text" class="form-control" formControlName="tel">
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-4">
+                <label for="myfile" id="label2">Imagen formato '.jpg'</label>
+                <input type="file" (click)="warning()" (change)="addImage($event)" id="inputFile"  class="form-control-file" formControlName="imgURL">
+            </div>
+        </div>
+        
+    </form>
+
+        <div class="col-sm-5 mt-3 ml-5" id="progressBar" >
+            <progressbar [value]="loadingIMG"  [striped]="true">{{loadingIMG}}%</progressbar>
+            
+        </div>
+  
+
+    <button *ngIf="!editButton" type="button" class="btn btn-outline-success" [disabled]="!clientForm.valid" (click)="add()">Agregar</button>
+    <button *ngIf="editButton" type="button" class="btn btn-outline-success" (click)="edit()">Editar</button>
+
+</div>

@@ -1,0 +1,65 @@
+<div class="container mt-5">
+    <div class="row">
+
+        <div class="col-sm-2">
+            
+            <div *ngIf="selectedList==null">
+                <img src="assets/99.png" alt="">
+            </div>
+
+            <div *ngIf="selectedList!=null">
+                <img [src]="selectedList.imgURL" alt="">
+            </div>
+        </div>
+
+        <div class="col-sm-4">
+            <h3>Cliente</h3>
+            
+            <select [(ngModel)]="selectedList"  name="selectedList" class="form-control">               
+                <option  *ngFor="let item of clientList" class="form-control" [ngValue]="item">{{item.nombre}} {{item.apellido}} </option>
+            </select>
+            
+            
+
+            <div class="container mt-5" *ngIf="selectedList!=null" id="clientData">
+              
+                <span class="d-block p-2 bg-primary text-white mt-2">Nombre: {{selectedList.nombre}} {{selectedList.apellido}}</span>
+                <span class="d-block p-2 bg-primary text-white mt-2">DNI: {{selectedList.DNI}} </span>
+                <span class="d-block p-2 bg-primary text-white mt-2">Tel: {{selectedList.tel}} </span>
+                <span class="d-block p-2 bg-primary text-white mt-2">Email: {{selectedList.correo}} </span>
+                <span class="d-block p-2 bg-primary text-white mt-2">ClienteID: {{selectedList.id}} </span>
+                
+
+               
+            </div>
+      
+         
+        </div>
+        <div class="col-sm-4">
+            <h3>Plan</h3>
+            <select [(ngModel)]="ListPlan"  name="listPlan" class="form-control">
+                <option [ngValue]="item" *ngFor="let item of planList" class="form-control">{{item.plan}}</option>
+            </select>
+            <div class="container mt-5" *ngIf="ListPlan!=null" id="clientData">
+                          
+                <span class="d-block p-2 bg-primary text-white mt-2">Precio: {{ListPlan.price | currency}} </span>
+                <span class="d-block p-2 bg-primary text-white mt-2">Duracion: {{ListPlan.pTime}} </span>
+            
+                           
+            </div>
+
+
+        </div>
+
+        
+        <div class="col-sm-2 mt-5">
+            <button class="btn btn-primary" id="btnAdd" (click)="add()">Agregar</button>
+           
+        </div>
+        
+        
+  
+        
+    </div>
+</div>
+

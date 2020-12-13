@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=Hammersmith+One&display=swap');
+form
+{    
+  margin-left: 35%;
+  font-family: 'DM Sans', sans-serif;
+}
+
+input
+{
+    width: 35%;
+}
+
+img
+{
+    margin-left: 34%;
+    width:25%;
+}
+
+.container
+{
+    color: whitesmoke;
+}
+
+#errorLogin
+{
+    margin-top: 2%;
+    margin-left: 35%;    
+    font-family: 'DM Sans', sans-serif;
+}
+
+@media only screen and (max-width: 500px) {
+
+    .container{
+        margin-left: -5%;
+    }
+
+    input{
+        width: 80%;
+    }
+    img
+    {
+        width: 70%;
+        margin-left: 26%;
+    }
+  }

@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=Hammersmith+One&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap');
+
+ h3{
+    font-family: 'Saira Stencil One', cursive;
+}
+
+.container{font-family: 'DM Sans', sans-serif;}
+form{margin-top: 2%; margin-left: 5%;}
+button{margin-left: 5%; margin-top:2%;}
+
+@media only screen and (max-width: 500px) {
+
+        .container {
+           #inputFile{
+               width: 64%;
+           }
+
+           #progressBar{
+               width: 50%;
+           }
+        }
+}

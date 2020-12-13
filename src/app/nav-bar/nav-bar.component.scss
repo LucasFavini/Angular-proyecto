@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=Hammersmith+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Piedra&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap');
+
+
+
+.navbar-nav .nav-link
+{
+    color: #eaeaea; 
+    font-family: 'Saira Stencil One', cursive;
+
+}
+
+li
+{
+    margin: 0% 15%;
+}
+
+
+
+#logo
+{
+    font-family: 'Piedra', cursive;
+    color:  #eaeaea;
+}
+
+#myUser
+{
+    border: 2px solid white;
+    text-align: center;
+}
+
+.dropdown-menu 
+{
+    left: 0px; right: auto; top: 100%; transform: translateY(0px); bottom: auto;
+}
+ 
