@@ -64,8 +64,7 @@ export class RegisterComponent implements OnInit {
         )
         this.db.collection('inscripcion').doc(item).delete();              
 
-        setTimeout(() => {        
-          window.location.reload();
+        setTimeout(() => {               
           this.routing.navigate(['/register'])
         }, 1000);  
 
