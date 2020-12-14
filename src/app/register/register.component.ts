@@ -2,6 +2,7 @@ import { Component,OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AlertsService } from '../Services/alerts.service';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,7 +15,7 @@ export class RegisterComponent implements OnInit {
 
   planList:Array<any> =new Array<any>();
 
-  constructor(public db:AngularFirestore, public del:AlertsService) { 
+  constructor(public db:AngularFirestore, public del:AlertsService,private routing:Router) { 
 
   }
   
@@ -62,9 +63,13 @@ export class RegisterComponent implements OnInit {
        
         )
         this.db.collection('inscripcion').doc(item).delete();              
+
         setTimeout(() => {        
           window.location.reload();
+          this.routing.navigate(['/register'])
         }, 1000);  
+
+       
 
       } else if (
         result.dismiss === Swal.DismissReason.cancel

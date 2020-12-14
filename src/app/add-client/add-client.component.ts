@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AlertsService } from '../Services/alerts.service';
+import { Route } from '@angular/compiler/src/core';
+import { PeticionService } from '../Services/peticion.service';
 
 @Component({
   selector: 'app-add-client',
@@ -22,7 +24,8 @@ export class AddClientComponent implements OnInit {
  
 
   constructor(private fb:FormBuilder,private storage: AngularFireStorage, private db: AngularFirestore ,
-     private activeRoute:ActivatedRoute,private alert:AlertsService) { }
+    	        private activeRoute:ActivatedRoute,private alert:AlertsService,
+              private routing:Router, public peticion:PeticionService) { }
 
   ngOnInit(): void {
     this.clientForm = this.fb.group({
@@ -76,8 +79,12 @@ export class AddClientComponent implements OnInit {
     
     
     setTimeout(() => {        
-      window.location.href='/listado-clientes';
+      this.routing.navigate(['/listado-clientes']);
     }, 1000);
+
+    setTimeout(() => {      
+      window.location.reload();
+    }, 1300);
   }
 
 
@@ -93,9 +100,13 @@ export class AddClientComponent implements OnInit {
         this.alert.alertFail("Error", "No se puedo editar");
       });
 
-      setTimeout(() => {        
-        window.location.href='/listado-clientes';
+      setTimeout(() => {           
+        this.routing.navigate(['/listado-clientes']);
       }, 1000);
+
+      setTimeout(() => {      
+        window.location.reload();
+      }, 1300);
   
   }
 

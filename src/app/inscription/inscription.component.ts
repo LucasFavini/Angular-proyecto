@@ -1,5 +1,6 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Router } from '@angular/router';
 import { Clients } from '../models/clients';
 import { Inscription } from '../models/inscription';
 import { Plan } from '../models/plan';
@@ -20,7 +21,7 @@ export class InscriptionComponent implements OnInit {
   ListPlan:Plan;
 
 
-  constructor(private db:AngularFirestore,private alert:AlertsService) {  }
+  constructor(private db:AngularFirestore,private alert:AlertsService, private router:Router) {  }
 
   ngOnInit(): void {
 
@@ -70,6 +71,7 @@ export class InscriptionComponent implements OnInit {
       })      
       
       this.alert.alertSuccess('Inscripcion','Realizada');
+      this.router.navigate(['/registro']);
     }
      
   

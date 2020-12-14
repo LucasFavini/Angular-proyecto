@@ -20,7 +20,7 @@ export class AppComponent {
       {
         this.loading = false;
        
-      },0.5000);
+      },0.2000);
       
 
     })

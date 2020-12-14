@@ -12,8 +12,12 @@ export class PeticionService {
 
 
   constructor(public db:AngularFirestore) {
+      this.peticion();
+   }
 
-  
+   peticion()
+   {
+     
     this.db.collection<any>('clientes').get().subscribe((results)=>{
       results.docs.forEach((item)=>{
        
@@ -27,11 +31,6 @@ export class PeticionService {
       console.log(this.clients);
  
     })
-   }
-
-   delete()
-   {
-   // this.db.collection('inscripcion').doc(item).delete();
    }
    
 }

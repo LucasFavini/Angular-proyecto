@@ -3,6 +3,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { AlertsService } from '../Services/alerts.service';
 import { PeticionService } from '../Services/peticion.service';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-client-list',
@@ -14,7 +15,7 @@ export class ClientListComponent implements OnInit {
  
   clients:any[]= new Array<any>();
 
-  constructor(public db:AngularFirestore, private alert:AlertsService, public peticion:PeticionService) 
+  constructor(public db:AngularFirestore, private alert:AlertsService, public peticion:PeticionService, private routing:Router) 
   {    
 
   }
@@ -55,8 +56,12 @@ export class ClientListComponent implements OnInit {
         )
         this.db.collection('clientes').doc(item).delete();              
         setTimeout(() => {        
+          this.routing.navigate(['/listado-clientes']);
+        }, 1000);
+    
+        setTimeout(() => {      
           window.location.reload();
-        }, 1000);  
+        }, 1300);
 
       } else if (
         result.dismiss === Swal.DismissReason.cancel
