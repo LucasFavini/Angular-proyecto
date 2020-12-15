@@ -17,16 +17,28 @@ export class ClientListComponent implements OnInit {
 
   constructor(public db:AngularFirestore, private alert:AlertsService, public peticion:PeticionService, private routing:Router) 
   {    
+    this.peticion.update();
 
   }
 
-  ngOnInit(): void {  
-
-    this.peticion.clients;
+  ngOnInit(): void {    
     this.clients = this.peticion.clients;
-
   }
   
+  update(){
+    
+    this.db.collection('clientes').get().subscribe((info)=>{
+      this.clients = [];
+      info.docs.forEach((item)=>{
+        let clients = item.data();
+        clients.id = item.id;
+        clients.ref = item.ref;
+        this.clients.push(clients);
+      })
+      return this.clients;
+    });
+
+   }
   
   eliminar(item)
   {    
@@ -55,13 +67,7 @@ export class ClientListComponent implements OnInit {
        
         )
         this.db.collection('clientes').doc(item).delete();              
-        setTimeout(() => {        
-          this.routing.navigate(['/listado-clientes']);
-        }, 1000);
-    
-        setTimeout(() => {      
-          window.location.reload();
-        }, 1300);
+        this.update();        
 
       } else if (
         result.dismiss === Swal.DismissReason.cancel
@@ -74,5 +80,7 @@ export class ClientListComponent implements OnInit {
       }
     })
   }
+
+
 
 }

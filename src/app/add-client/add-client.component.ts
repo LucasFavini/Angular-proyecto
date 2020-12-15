@@ -75,16 +75,9 @@ export class AddClientComponent implements OnInit {
       console.log("Finalizado");
     });
     this.clientForm.reset();
-    this.loadingIMG=0;
-    
-    
-    setTimeout(() => {        
-      this.routing.navigate(['/listado-clientes']);
-    }, 1000);
-
-    setTimeout(() => {      
-      window.location.reload();
-    }, 1300);
+    this.loadingIMG=0;    
+        
+   
   }
 
 
@@ -98,15 +91,7 @@ export class AddClientComponent implements OnInit {
       this.clientForm.value.imgURL = this.imgURL;  
       }).catch(()=>{
         this.alert.alertFail("Error", "No se puedo editar");
-      });
-
-      setTimeout(() => {           
-        this.routing.navigate(['/listado-clientes']);
-      }, 1000);
-
-      setTimeout(() => {      
-        window.location.reload();
-      }, 1300);
+      });  
   
   }
 

@@ -5,6 +5,7 @@ import { Clients } from '../models/clients';
 import { Inscription } from '../models/inscription';
 import { Plan } from '../models/plan';
 import { AlertsService } from '../Services/alerts.service';
+import { PeticionService } from '../Services/peticion.service';
 
 
 @Component({
@@ -21,33 +22,17 @@ export class InscriptionComponent implements OnInit {
   ListPlan:Plan;
 
 
-  constructor(private db:AngularFirestore,private alert:AlertsService, private router:Router) {  }
+  constructor(private db:AngularFirestore,private alert:AlertsService, private router:Router,
+     public peticion:PeticionService) 
+     { 
+      this.peticion.update();
+     }
 
-  ngOnInit(): void {
-
-    this.db.collection<any>('clientes').get().subscribe((results)=>{
-      results.docs.forEach((item)=>{
-
-        let client:any = item.data();
-        client.id = item.id;  
-        this.clientList.push(client);  
-                      
-      });
-   
-    })
-
-    
-    this.db.collection<any>('planes').get().subscribe((results)=>{
-      results.docs.forEach((item)=>{
-       
-        let plan:any = item.data();
-        plan.id = item.id;
-        plan.ref = item.ref;
-        this.planList.push(plan);     
-           
-      })
-     
-    });
+  ngOnInit(): void { 
+    this.clientList= this.peticion.clients;
+    this.planList = this.peticion.planList;
+    console.log(this.clientList);
+    console.log(this.planList);
   }
 
     add()

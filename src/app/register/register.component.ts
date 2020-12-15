@@ -3,6 +3,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { AlertsService } from '../Services/alerts.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { asWindowsPath } from '@angular-devkit/core';
 
 
 @Component({
@@ -25,16 +26,28 @@ export class RegisterComponent implements OnInit {
 
   
   inscripciones(){
-    this.db.collection('inscripcion').get().subscribe(results=>{
-      results.docs.map(item=> {
+    this.db.collection('inscripcion').get().subscribe(results=>{      
+      results.docs.forEach(item=> {       
         let plans = item.data();
-        plans.id = item.id;
-        this.planList.push(plans);  
-       
+        plans.id = item.id;        
+        this.planList.push(plans);         
       })
     })
   }
   
+
+  update(){
+
+    this.db.collection('inscripcion').get().subscribe((info)=>{
+      this.planList = [];
+      info.docs.forEach((item)=>{
+        let plans = item.data();
+        plans.id = item.id;
+        plans.ref = item.ref;
+        this.planList.push(plans);
+      })
+    });
+  }
 
   delete(item)
   {
@@ -63,13 +76,8 @@ export class RegisterComponent implements OnInit {
        
         )
         this.db.collection('inscripcion').doc(item).delete();              
-
-        setTimeout(() => {               
-          this.routing.navigate(['/register'])
-        }, 1000);  
-
-       
-
+        this.update();
+  
       } else if (
         result.dismiss === Swal.DismissReason.cancel
       ) {

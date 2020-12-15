@@ -91,9 +91,7 @@ planList:Array<any> =new Array<any>();
         )
         this.db.collection('planes').doc(item).delete();
         this.update();        
-        setTimeout(() => {        
-          window.location.reload();
-        }, 1500);  
+              
       } else if (
         result.dismiss === Swal.DismissReason.cancel
       ) {
